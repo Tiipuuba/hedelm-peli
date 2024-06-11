@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hedelmäpeli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Hedelmäpeli</h1>
+    </header>
+    <div id="content">
+        <div id="left">
+            <div id="moneybox">
+                <div id="moneymanagement">
+                    <div class="moneynwager">RAHAA: <span id="moneytotal">50</span>€</div>
+                    <div class="moneynwager">PANOS: <span id="currentwager">1</span>€</div>
+                    <div class="moneynwager">VIIMEISIN VOITTO: <span id="lastwin">-</span>€</div>
+                    <div id="wagerselect">
+                        <div class="wager" onclick="changeBet(1)">
+                            <img src="art/coin.png">
+                            <div class="wageramount">1€</div>
+                        </div>
+                        <div class="wager" onclick="changeBet(2)">
+                            <img src="art/coin.png">
+                            <div class="wageramount">2€</div>
+                        </div>
+                        <div class="wager" onclick="changeBet(3)">
+                            <img src="art/coin.png">
+                            <div class="wageramount">3€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="gamebox">
+                <div id="gamemanagement">
+                    <div class="gamelane">
+                        <img style='height: 75px; width: 75px;' class="gameimg" id="lot1" src="art/pear.png">
+                        <img style='height: 75px; width: 75px;' class="gameimg" id="lot2" src="art/pear.png">
+                        <img style='height: 75px; width: 75px;' class="gameimg" id="lot3" src="art/pear.png">
+                        <img style='height: 75px; width: 75px;' class="gameimg" id="lot4" src="art/pear.png">
+                    </div>
+                    <div class="gamelane">
+                        <img style='height: 75px; width: 75px;' class="gameimg" id="locklot1" src="art/lock_unavailable.png" onclick="lock(1)">
+                        <img style='height: 75px; width: 75px;' class="gameimg" id="locklot2" src="art/lock_unavailable.png" onclick="lock(2)">
+                        <img style='height: 75px; width: 75px;' class="gameimg" id="locklot3" src="art/lock_unavailable.png" onclick="lock(3)">
+                        <img style='height: 75px; width: 75px;' class="gameimg" id="locklot4" src="art/lock_unavailable.png" onclick="lock(4)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="winbox">
+                <div id="wintable">
+                    <div class="winrow">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/pear.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/pear.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/pear.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/pear.png">
+                        <div class="potentialwin">
+                            <div class="potentialwinwhitebox">
+                                <span class="potentialwinamount" id="potentialpearwin">3</span>
+                                <img style='height: 10px; width: 10px;' src="art/coin.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="winrow">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/apple.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/apple.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/apple.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/apple.png">
+                        <div class="potentialwin">
+                            <div class="potentialwinwhitebox">
+                                <span class="potentialwinamount" id="potentialapplewin">4</span>
+                                <img style='height: 10px; width: 10px;' src="art/coin.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="winrow">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/cherry.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/cherry.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/cherry.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/cherry.png">
+                        <div class="potentialwin">
+                            <div class="potentialwinwhitebox">
+                                <span class="potentialwinamount" id="potentialcherrywin">5</span>
+                                <img style='height: 10px; width: 10px;' src="art/coin.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="winrow">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/melon.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/melon.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/melon.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/melon.png">
+                        <div class="potentialwin">
+                            <div class="potentialwinwhitebox">
+                                <span class="potentialwinamount" id="potentialmelonwin">6</span>
+                                <img style='height: 10px; width: 10px;' src="art/coin.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="winrow">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/seven.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/seven.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/seven.png">
+                        <img style='height: 60px; width: 60px;' class="winpic" src="art/seven.png">
+                        <div class="potentialwin">
+                            <div class="potentialwinwhitebox">
+                                <span class="potentialwinamount" id="potentialsevenwin">10</span>
+                                <img style='height: 10px; width: 10px;' src="art/coin.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="winrow">
+                        <p>1x vasen päärynä: <span style="text-decoration: underline;">x1</span>/ / /</p>
+                        <p>3x seiskaa: <span style="text-decoration: underline;">x5</span>/ / /</p>
+                        <p>2x seiskaa: <span style="text-decoration: underline;">x2</span>/ / /</p>
+                        <p>Kaikki eri: <span style="text-decoration: underline;">x2</span>/ / /</p>
+                    </div>
+                </div>
+            </div>
+            <div id="playbox" onclick="play()">
+                <h1>Pelaa</h1>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
